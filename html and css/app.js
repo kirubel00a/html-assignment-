@@ -1,21 +1,23 @@
-const menu = document.querySelector('#mobile_menu');
-const menulinks = document.querySelector('.navbar_menu');
+let slideIndex = 1;
+showSlides(slideIndex);
 
-menu.addEventListener('click', function(){
-    menu.classList.toggle('is-active');
-    menulinks.classList.toggle('active');
-    
-});
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
-function swapImages() {
-    var image1 = document.getElementById('image1');
-    var image2 = document.getElementById('image2');
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
 
-    // Get the current source of each image
-    var src1 = image1.src;
-    var src2 = image2.src;
-
-    // Swap the source of the images
-    image1.src = src2;
-    image2.src = src1;
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("slidesfade");
+  if (n > slides.length) { slideIndex = 1; }
+  if (n < 1) { slideIndex = slides.length; }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
 }
