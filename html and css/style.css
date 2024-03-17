@@ -245,7 +245,6 @@ input[type="checkbox"]:checked + .slider-round:before {
         clip-path: inset(0px 0px 150px 0px);
 
     } 
-   
   
     .fa-chevron-down{
         color: gray;
@@ -441,56 +440,81 @@ input[type="checkbox"]:checked + .slider-round:before {
    .main_body{
     margin-left: 5%;
     height: 800px;
+    /* padding: 20px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
    }
     .container h1{
         justify-content: center;
         display: flex;
-        margin-bottom: 5rem;
+        margin-bottom: 8rem;
     }
     .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
         height: 700px;
     }
     .slideshow_container {
-        margin-left: 5%;
+        margin-left: 1%;
         max-width: 100%;
+        width: 1000px;
         display: flex;
         justify-content: space-between; 
         height: 600px;
-    
+        /* overflow: hidden;  */
+        transition: transform 0.5s ease; 
+    }
     .slidesfade {
+        flex: 0 0 auto ;
         display: flex; 
         align-items: center; 
         justify-content: center;
         align-items: center;
         flex-direction: column; 
         height: 600px;
-    
-     img {
-        width: 300px;
-        height: 460px;
-        height: 500px;
+        max-width: 300px;
+        transition: opacity 0.5s ease;
     }
     
-    .prev, .next {
-        height: 60px;
-        padding: 16px;
-        background-color: rgb(239, 239, 123);
-        color: white;
-        border: none;
-        border-radius: 50%;
+    .prev,
+    .next {
         font-size: 24px;
-        z-index: 1;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid #ccc; 
+        border-radius: 50%; 
+        color: #333; 
+        z-index: 1; 
+    }
+    .prev:hover,
+    .next:hover {
+        background: rgba(193, 220, 40, 0.1); 
     }
     
-    .prev {
-        display: flex;
-        margin-right: 100%;
-    }
-    .next{
-        justify-content: end;
-        position: relative;
+    .fa-chevron-left{
+        color: gray;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        flex-grow: 0;
+        object-fit: contain;
     }
     
+    
+    img {
+        max-width: 100%; 
+        max-height: 100%;
+    }
+   
     .information {
         bottom: 0;
         left: 0;
@@ -510,4 +534,3 @@ input[type="checkbox"]:checked + .slider-round:before {
 
 
    
-
