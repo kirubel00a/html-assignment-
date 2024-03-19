@@ -323,9 +323,14 @@ input[type="checkbox"]:checked + .slider-round:before {
     }
     
     .feature_image {
-        width: 307.5px;
+        width: 407.5px;
         height: 682.9px;
-        flex-grow: 0;
+    }
+
+    .bigger_image {
+        width: 100%; /* or specify a fixed width if desired */
+        height: auto; /* Maintain aspect ratio */
+        max-height: 680px; /* Set a maximum height if needed */
     }
     
     .app_f {
@@ -449,7 +454,15 @@ input[type="checkbox"]:checked + .slider-round:before {
     .container h1{
         justify-content: center;
         display: flex;
-        margin-bottom: 8rem;
+        margin-bottom: 3rem;
+        font-size: 40px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.3;
+        letter-spacing: normal;
+        text-align: center;
+        
     }
     .container{
         display: flex;
@@ -459,13 +472,12 @@ input[type="checkbox"]:checked + .slider-round:before {
         height: 700px;
     }
     .slideshow_container {
-        margin-left: 1%;
-        max-width: 100%;
-        width: 1000px;
+        margin-bottom: 12rem;
+        max-width: 100%; 
+        width: 1000px; 
         display: flex;
-        justify-content: space-between; 
-        height: 600px;
-        /* overflow: hidden;  */
+        justify-content: space-around;
+        height: 500px; 
         transition: transform 0.5s ease; 
     }
     .slidesfade {
@@ -479,10 +491,10 @@ input[type="checkbox"]:checked + .slider-round:before {
         max-width: 300px;
         transition: opacity 0.5s ease;
     }
-    
+ 
     .prev,
     .next {
-        font-size: 24px;
+        font-size: 14px;
         width: 40px;
         height: 40px;
         text-align: center;
@@ -508,24 +520,45 @@ input[type="checkbox"]:checked + .slider-round:before {
         flex-grow: 0;
         object-fit: contain;
     }
-    
-    
     img {
         max-width: 100%; 
-        max-height: 100%;
+        max-height: 75%;
+        display: block;
+
     }
    
     .information {
-        bottom: 0;
-        left: 0;
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        width: 100%;
+        padding-top: 10%;
+        
     }
-    
-    .information h5, .information p {
-        margin: 0;
+    .information h5{
+        display: flex;
+        padding-left:8.7rem;
+        margin-left: 3rem;
+        text-align: center;
+        justify-content: center;
+        align-content: center;
+        width: 395px;
+        font-family: Manrope;
+        font-size: 18px;
+        font-weight: 800;
+        text-align: center;
+        color: #0b0f19;
+    }
+    .information p {
+        width: 636px;
+        height: 52px;
+        flex-grow: 0;
+        font-family: Manrope;
+        font-size: 13px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.6;
+        letter-spacing: normal;
+        text-align: center;
+        color:#565973;
+
     }
 } 
  

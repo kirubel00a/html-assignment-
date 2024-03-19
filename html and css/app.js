@@ -1,34 +1,38 @@
-var slideIndex = 1;
-showSlides(slideIndex);
+let slideIndex = 0;
+showSlides();
 
 function plusSlides(n) {
-    showSlides(slideIndex += n);
+    slideIndex += n;
+    showSlides();
 }
 
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
+function showSlides() {
+    let slides = document.getElementsByClassName("slidesfade");
+    let infos = document.getElementsByClassName("information");
 
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("slide");
-    var info = document.getElementsByClassName("information");
-    if (n > slides.length) {slideIndex = 1}    
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-        slides[i].classList.remove("active");  
+    // Dölj informationen för alla bilder
+    for (let i = 0; i < infos.length; i++) {
+        infos[i].style.display = "none";
     }
-    for (i = 0; i < info.length; i++) {
-        info[i].style.display = "none";  
+    if (slideIndex >= 0 && slideIndex < slides.length) {
+        infos[slideIndex].style.display = "block";
     }
-    slides[slideIndex - 1].classList.add("active");
-    info[slideIndex-1].style.display = "block";
-    updateSlidePosition();
-}
-function updateSlidePosition() {
-  var container = document.querySelector('.slideshow_container');
-  var activeSlide = document.querySelector('.slide.active');
-  var scrollLeft = activeSlide.offsetLeft - (container.offsetWidth - activeSlide.offsetWidth) / 2;
-  container.scrollLeft = scrollLeft;
+    // Visa den aktuella bildens information
+    if (slideIndex >= slides.length) {slideIndex = 0}    
+    if (slideIndex < 0) {slideIndex = slides.length - 1}
+
+    infos[slideIndex].style.display = "block";
+
+    // Justera positionen för bilderna för att centrera dem
+    let containerWidth = document.querySelector('.container').offsetWidth;
+    let totalWidth = 0;
+    for (let i = 0; i < slides.length; i++) {
+        totalWidth += slides[i].offsetWidth;
+    }
+    let offset = (containerWidth - totalWidth) / (slides.length - 1);
+    let currentOffset = 0;
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.left = currentOffset + "px";
+        currentOffset += slides[i].offsetWidth + offset;
+    }
 }
